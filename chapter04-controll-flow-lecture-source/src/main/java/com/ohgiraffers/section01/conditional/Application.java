@@ -9,6 +9,18 @@ public class Application {
 //        aClass.testSimpleIfStatement();
 
         /* 설명. 중첩 if문 흐름 확인용 메서드 호출 */
-        aClass.testNestedIfStatement();
+//        aClass.testNestedIfStatement();
+
+        B_ifElse bClass = new B_ifElse();
+
+        /* 설명. 단독 if-else문 흐름 확인용 메서드 호출 */
+//        bClass.testSimleIfElseStatement();
+
+        /* 설명. 중첩 if-else문 흐름 확인용 메서드 호출 */
+//        bClass.testNestedifElseStatement();
+
+        C_ifElseIf cClass = new C_ifElseIf();
+
+       cClass.testIfElseIfStatement();
     }
 }

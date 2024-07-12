@@ -20,7 +20,10 @@ public class Application {
 //        bClass.testNestedifElseStatement();
 
         C_ifElseIf cClass = new C_ifElseIf();
+        /* 설명. 중첩 If-Else-If문 흐름 확인용 메서드 호출 */
+//       cClass.testIfElseIfStatement();
 
-       cClass.testIfElseIfStatement();
+        /* 설명 . switch문 흐름 확인용 메서드 호출 */
+        D_switch.testSimpleSwitchStatement();
     }
 }

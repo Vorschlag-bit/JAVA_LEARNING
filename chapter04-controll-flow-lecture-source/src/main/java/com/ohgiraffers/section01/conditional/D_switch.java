@@ -21,7 +21,7 @@ public class D_switch {
 
         /* 설명. G/S/B 중에 하나를 입력하면 해당 등급 point를 보여주고 그렇지 않으면 회원가입 유도 */
         if(flag) {
-            System.out.println("You have entered a valid grade: " + grade + "your point is " +point);
+            System.out.println("You have entered a valid grade: " + grade + ", your point is " +point);
         }
         else System.out.println("You have entered an invalid grade");
     }

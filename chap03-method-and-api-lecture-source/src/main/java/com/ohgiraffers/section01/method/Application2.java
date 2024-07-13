@@ -6,9 +6,7 @@ public class Application2 {
 
         /* 설명. static이 없는 메소드(non-static method)는 해당 클래스를 인지시킨 후 접근해 호출한다. */
         Application2 app = new Application2();
-        app.methodA();
         app.methodB();
-        app.methodC();
         System.out.println("main() 종료됨...");
     }
     
@@ -17,8 +15,9 @@ public class Application2 {
         System.out.println("methodA() 종료됨...");
     }
 
-    public void methodB() {
+    public static void methodB() {
         System.out.println("methodB() 호출됨...");
+        methodA();
         System.out.println("methodB() 종료됨...");
     }
 

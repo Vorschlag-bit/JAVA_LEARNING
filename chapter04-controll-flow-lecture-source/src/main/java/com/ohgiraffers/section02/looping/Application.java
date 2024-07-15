@@ -14,5 +14,10 @@ public class Application {
 //        bClass.printGugudanFromTwoToNine();
 //        bClass.prinStars();
         bClass.placeStars();
+
+        C_while cClass = new C_while();
+//        cClass.testWhileExample();
+        D_doWhile dClass = new D_doWhile();
+//        dClass.testSimpleDoWhileStatement();
     }
 }

@@ -40,15 +40,21 @@ public class B_nestedFor {
         }
     }
 
-    /**/
+    /* 이번엔 이렇게
+    *  5
+    * 45
+    * 345
+    * 2345
+    * 12345*/
     public void placeStars() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("별 입력:");
         int n = sc.nextInt();
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = 1; i <= n; i++) {
             System.out.println();
-            for (int j = 0; j < n; j++) {
-                if(i >= j) System.out.print(" ");
-                else System.out.print("* ");
+            for (int j = n; j >= 1; j--) {
+                if(i <= j) System.out.print("* ");
+                else System.out.print(" ");
             }
         }
     }

@@ -8,9 +8,9 @@ public class Application1 {
         *   자료형 별 값의 최대 범위를 벗어나는 경우
         *   발생한 carry를 버림처리하고 부호 비트를 반전시켜 순환한다.
         * */
-
         /* 설명. overflow */
-        byte num1 = 126;
+        byte num1 = -128;
+        System.out.println("hihj"+ --num1);
 
         num1++;           // 기존의 num1 변수에 있던 값에 1을 더해 다시 대입한다.
                           // num1 = num1 + 1;

@@ -20,7 +20,8 @@ public class Appliaction1 {
         int ch1 = 'A';
         System.out.println("ch1 = " + ch1);
 
-        /* 설명.. int 형에서 char형에 담기는 건 작은 범위로 대입되지만 가능하다.(예외) */
+        /* 설명. int 형에서 char형에 담기는 건 작은 범위로 대입되지만 가능하다.(예외) */
+        /* 필기. 해당 범위는 아스키 코드가 지원하는 수까지만 담긴다.(65 = 'A') */
         char ch2 = 65;
     }
 }

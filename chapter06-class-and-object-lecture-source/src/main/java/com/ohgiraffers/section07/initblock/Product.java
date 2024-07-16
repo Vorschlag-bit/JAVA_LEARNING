@@ -3,7 +3,7 @@ package com.ohgiraffers.section07.initblock;
 public class Product {
     private String name = "iphone";
     private int price;
-    private static final String brand;
+    private static String brand;
 
     {
         System.out.println("초기화 블럭 생성");

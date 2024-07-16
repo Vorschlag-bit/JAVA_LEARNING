@@ -30,7 +30,7 @@ public class OverloadingTest {
 
     public void test(int num1, int num2) {}
 
-//    public void test(int num2, int num1) {} //parametet 변수명은 무관하다
+//  public void test(int num2, int num1) {} //parameter 변수명은 무관하다
 
     /* 설명. parameter의 type이 달리짐 */
     public void test(int num, String name) {}

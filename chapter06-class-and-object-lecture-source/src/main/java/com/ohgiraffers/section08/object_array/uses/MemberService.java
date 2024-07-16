@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class MemberService {
 
+    /* 설명. 모든 기능을 맡고 있으며, 사용자의 요청에 따라 기능을 안내해주는 클래스 */
     /* 설명. 회원가입을 5명 진행하고 저장하기 위해 저장용 객체(Register)에게 호출 */
     public void signUpMembers() {
         Member[] members = new Member[5];

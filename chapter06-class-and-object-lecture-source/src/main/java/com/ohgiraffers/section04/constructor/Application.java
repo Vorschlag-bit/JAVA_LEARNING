@@ -12,5 +12,8 @@ public class Application {
         User user1 = new User();
 //        System.out.println(user1.id); 직접접근은 불가능한 상태
         System.out.println((user1.information()));
+
+        User user2 = new User("user2", "1q2w3e4r", "Mew", new java.util.Date());
+        System.out.println(user2.information());
     }
 }

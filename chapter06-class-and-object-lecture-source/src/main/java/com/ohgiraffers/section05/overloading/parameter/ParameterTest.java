@@ -20,6 +20,7 @@ public class ParameterTest {
     }
     // 내가 제공하는 parameter 개수와 상관없이 ...은 그걸 모두 받아 배열로 만든다
     // 그 증거로 toString을 사용하지 않고 그냥 출력하면 주소값이 출력된다
+    /* 가변인자를 쓰지 않는 이유: 설계되지 않은 변수를 허용하지 않는 게 Java의 방식 */
     public void testVariableLengthArrayParameter(String... etc) {
         System.out.println("str = " + Arrays.toString(etc));
     }

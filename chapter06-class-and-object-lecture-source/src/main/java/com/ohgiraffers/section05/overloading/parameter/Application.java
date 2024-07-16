@@ -44,5 +44,6 @@ public class Application {
         pt.testVariableLengthArrayParameter();
         pt.testVariableLengthArrayParameter("Mel");
         pt.testVariableLengthArrayParameter("Mel", "Coffee");
+        pt.testVariableLengthArrayParameter(new String[]{"Mel", "Coffee", "Movie"}); // 하나는 홪정으로 String으로 받으므로 오류남
     }
 }

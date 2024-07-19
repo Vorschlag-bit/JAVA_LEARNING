@@ -20,8 +20,8 @@ public class Application1 {
         anythingMethod(10);
 
         /* 설명. Wrapper class 주소값 비교! */
-        Integer integerTest = 127;
-        Integer integerTest2 = 127;
+        Integer integerTest = 128;
+        Integer integerTest2 = 128;
         System.out.println("== 비교: " + (integerTest == integerTest2));     // 동일(주소값)비교
         System.out.println(".equals() 비교: " + (integerTest.equals(integerTest2)));    // 동등(값)비교
         System.out.println("integerTest address:" + System.identityHashCode(integerTest));

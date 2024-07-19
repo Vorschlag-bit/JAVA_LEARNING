@@ -21,6 +21,8 @@ public class Application2 {
 
         /* 설명. equals와 hashCode 확인 */
         System.out.println("str1.equals(str2) " + (str1.equals(str3)));
+        System.out.println(str1.hashCode());
+        System.out.println(str3.hashCode());
         System.out.println("str1.hashCode() == str3.hashCode() " + (str1.hashCode() == str3.hashCode()));
 
         /* 설명. 문자열 비교는 (==)쓰지 말고 .equals 사용하자 */

@@ -11,7 +11,8 @@ public class Application3 {
         *  문자열을 특정 구분자로 하여 분리한 문자열을 반환하는 기능을 한다.
         *  1. split(): 정규표현식을 이용하여 비정형화된 문자열을 분리한다.
         *              (String을 파싱하여 String[]로 만들어주고 []를 활용하여 구분자들을 넣을 수 있다.)
-        *  2. StringTokenizer: 문자열의 모든 문자들으 구분자를 활용하여 문자열이 분리된다. */
+        *  2. StringTokenizer: 문자열의 모든 문자들으 구분자를 활용하여 문자열이 분리된다.
+        *                      (StringTokenizer가 제공하는 method를 써야 한다.) */
 
         /* 설명. 1. split() 사용 */
         String emp1 = "100/홀길동/서울/영업부";

@@ -1,6 +1,6 @@
 package com.ohgiraffers.section01.object.section03.stringbuilder;
 
-public class Application02 {
+public class Application2 {
     public static void main(String[] args) {
 
 

@@ -18,7 +18,6 @@ public class Application4 {
 
         /* 설명. 이전, 이후, 같은 날짜 혹인(각 time 패키지 자료형마다 parameter는 같은 타입이어야 한다) */
         System.out.println(localDate.isAfter(past));
-        System.out.println(localDate.isBefore(future));
-        System.out.println(localDate.isEqual(now));
+        System.out.println(localDateTime.isBefore(future));
     }
 }

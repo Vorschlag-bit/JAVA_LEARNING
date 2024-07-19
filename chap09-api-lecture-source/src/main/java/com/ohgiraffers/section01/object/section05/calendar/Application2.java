@@ -1,5 +1,6 @@
 package com.ohgiraffers.section01.object.section05.calendar;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -48,5 +49,10 @@ public class Application2 {
             default: week = "Sunday"; break;
         }
         System.out.println("week = " + week);
+
+        /* 설명. SImpleDateFormat 활용 */
+        SimpleDateFormat sdf  = new SimpleDateFormat("yyyy/MM/dd hh:m:ss E요일");
+        String birthday2 = sdf.format(new java.util.Date(birthday.getTimeInMillis()));
+        System.out.println("birthday = " + birthday2);
     }
 }

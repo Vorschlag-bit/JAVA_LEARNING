@@ -10,9 +10,9 @@ public class Application3 {
         /* 수업목표. multi-catch구문을 이해하고 활용할 수 있다. */
         ExceptionTest2 et = new ExceptionTest2();
         try {
-            et.checkEnoughMoney(20000, 10);
+            et.checkEnoughMoney(-20000, -10);
         } catch (PriceNegativeException | MoneyNegativeException e) {
-            System.out.println("두 개의 예외 처리 방식");
+            System.out.println(e.getMessage());
         } catch (NotEnoughMoneyException e) {
             System.out.println("한 개의 예외 처리 방식");
             e.printStackTrace();

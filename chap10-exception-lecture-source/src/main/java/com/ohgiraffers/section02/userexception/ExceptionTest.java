@@ -8,6 +8,7 @@ public class ExceptionTest {
 
 //    public void checkEnoughMoney(int price, int money) throws PriceNegativeException, MoneyNegativeException, NotEnoughMoneyException {
     public void checkEnoughMoney(int price, int money) throws Exception {
+
         if (price < 0) {
             throw new PriceNegativeException("상품 가격은 음수일 수 없습니다.");
         }

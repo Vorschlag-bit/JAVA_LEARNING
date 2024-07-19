@@ -20,12 +20,12 @@ public class Application5 {
         System.out.println("localDate = " + localDate);
         System.out.println("localDateTime = " + localDateTime);
 
-        /* 설명. pattern을 완벽하게 인색해 줘야할 때 */
+        /* 설명. pattern을 완벽하게 인식해 줘야할 때 */
         String timeNow2 = "14-06-13";
-        String dateNow2 = "20220312";
+        String dateNow2 = "220312";
 
         LocalTime localTime2 = LocalTime.parse(timeNow2, DateTimeFormatter.ofPattern("HH-mm-ss"));
-        LocalDate localDate2 = LocalDate.parse(dateNow2, DateTimeFormatter.ofPattern("yyyyMMdd"));
+        LocalDate localDate2 = LocalDate.parse(dateNow2, DateTimeFormatter.ofPattern("yyMMdd"));
 
         System.out.println("localTime2 = " + localTime2);
         System.out.println("localDate2 = " + localDate2);

@@ -16,5 +16,17 @@ public class Application {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm:ss E요일");
         String todayFormat = sdf.format(today);
         System.out.println("todayFormat = " + todayFormat);
+
+        /* 설명. java.util.Date -> java.sql.Date */
+        java.util.Date today2 = new java.util.Date();  // long형을 parameter로 주면 sql.Date로 바꿔준다
+        java.sql.Date sqlDate = new java.sql.Date(today2.getTime());     // sql.Date형의 생성자 활용
+
+        /* 설명. util.Date를 sql.Date로 down-casting하기 위해서 실제 객체가 sql.Date형이어야 한다. */
+//        java.sql.Date sqlDate2 = (java.sql.Date) today2;
+//        System.out.println(sqlDate2);
+
+
+        /* 설명. java.util.Date -> java.util.Date */
+        java.util.Date utilDate = sqlDate;       // polymorphism 적용 가능! (down-casting)
     }
 }

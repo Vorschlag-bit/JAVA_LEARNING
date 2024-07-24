@@ -43,6 +43,14 @@ public class Application1 {
             System.out.println("key = " + key + ", value = " + sm.get(key));
         }
 
+        /* 목차. 2. entrySet()을 활용한 Iterator 반복하기(feat. key + value set으로 변환하자) */
+        Set<Map.Entry<String, String>> set = sm.entrySet();
+        Iterator<Map.Entry<String, String>> iterEntry = set.iterator();
+        while (iterEntry.hasNext()) {
+            Map.Entry<String, String> entry = iterEntry.next();
+            System.out.println("key값: " + entry.getKey() + ", value값: " + entry.getValue());
+        }
+
 
 
     }

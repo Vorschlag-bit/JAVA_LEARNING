@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="375824d3-0997-43a3-8762-95de1dac893a" name="Changes" comment="File 클래스 method 연습">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/Application1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/Application2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/Application3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/Application4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/testInputStream.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section02/stream/testReader.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/filterstream/Application1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/filterstream/Application2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/filterstream/Application3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/filterstream/Application4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/filterstream/dto/MemberDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/file/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section01/file/Application.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Vorschlag-bit&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Vorschlag-bit/JAVA_LEARNING.git&quot;,
+    &quot;accountId&quot;: &quot;2d80d171-fb1e-4986-8437-572724198f9d&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2ja4usy9aPHNJywX510r2Y2w0Hi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Gradle.chap11-io-lecture-source [:Application.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap11-io-lecture-source [:Application1.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap11-io-lecture-source [:Application2.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap11-io-lecture-source [:Application3.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap11-io-lecture-source [:Application4.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="375824d3-0997-43a3-8762-95de1dac893a" name="Changes" comment="" />
+      <created>1721612081756</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721612081756</updated>
+      <workItem from="1721612082813" duration="15628000" />
+      <workItem from="1721632629919" duration="3081000" />
+      <workItem from="1721635723835" duration="2887000" />
+      <workItem from="1721692852129" duration="565000" />
+    </task>
+    <task id="LOCAL-00001" summary="File 클래스 method 연습">
+      <option name="closed" value="true" />
+      <created>1721613773424</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1721613773424</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="File 클래스 method 연습" />
+    <option name="LAST_COMMIT_MESSAGE" value="File 클래스 method 연습" />
+  </component>
+</project>

@@ -1,5 +1,7 @@
 package com.ohgiraffers.section01.list.dto;
 
+import java.util.Objects;
+
 public class BookDTO implements Comparable<BookDTO> {
     private String title;
     private int number;
@@ -58,6 +60,19 @@ public class BookDTO implements Comparable<BookDTO> {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookDTO bookDTO = (BookDTO) o;
+        return Objects.equals(title, bookDTO.title) && Objects.equals(author, bookDTO.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author);
+    }
+
     /* 필기.
     *  우리가 원하는 필드의 오름차순 또는 내림차순을 할 수 있다.
     *  필드가 n개면 총(n * 2) 가지의 정렬 기준을 가질 수 있다.(각각 asc or desc)
@@ -78,5 +93,7 @@ public class BookDTO implements Comparable<BookDTO> {
         /* 설명. 책 제목에 대한 오름차순 */
 //        return this.title.compareTo(o.getTitle()); // int compareTo와 마찬가지로 결국 반환하는 값은 int라 순서를 바꾸기만하면 내림차순 정렬이 된다
         return -this.title.compareTo(o.getTitle());
+
+
     }
 }

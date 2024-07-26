@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c976af92-65ed-462e-a450-315467109582" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/driver.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/driver.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/map/run/Application2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap11-io-lecture-source/src/main/java/com/ohgiraffers/section04/TESTAPP/aggregate/BloodType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap11-io-lecture-source/src/main/java/com/ohgiraffers/section04/TESTAPP/aggregate/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chap11-io-lecture-source/src/main/java/com/ohgiraffers/section04/TESTAPP/run/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap11-io-lecture-source/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap11-io-lecture-source/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chap11-io-lecture-source/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chap11-io-lecture-source/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/map/run/Application1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section03/map/run/Application1.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,32 +55,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Application01.executor": "Run",
-    "Application.Application02.executor": "Run",
-    "Application.Application1.executor": "Run",
-    "Application.Application2.executor": "Run",
-    "Application.Application3.executor": "Run",
-    "Application.Application4.executor": "Run",
-    "Application.Application5.executor": "Run",
-    "Gradle.chap13-collcetion-lecture-source [:Application01.main()].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Application01.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application02.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application1.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application2.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application3.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application4.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Application5.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.chap13-collcetion-lecture-source [:Application01.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -100,6 +101,9 @@
       <workItem from="1721727000630" duration="1259000" />
       <workItem from="1721779381853" duration="4354000" />
       <workItem from="1721784030825" duration="4748000" />
+      <workItem from="1721800951518" duration="836000" />
+      <workItem from="1721802147551" duration="2406000" />
+      <workItem from="1721827829977" duration="1335000" />
     </task>
     <servers />
   </component>

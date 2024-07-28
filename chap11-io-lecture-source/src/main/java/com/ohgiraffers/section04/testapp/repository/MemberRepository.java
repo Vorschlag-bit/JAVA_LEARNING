@@ -20,9 +20,10 @@ public class MemberRepository {
     * */
     public MemberRepository() {
 
-        /* 설명. main을 실행할 때마다 덮어씌우는 문제를 방지하고자 파일이 없을 때만 초기 세팅이 되도록 조건문 작성 */
         File file = new File("src/main/java/com/ohgiraffers/section04/testapp/db/memberDB.dat");
-        if (!file.exists()) {
+
+        /* 설명. main을 실행할 때마다 덮어씌우는 문제를 방지하고자 파일이 없을 때만 초기 세팅이 되도록 조건문 작성 */
+        if(!file.exists()) {
             ArrayList<Member> defaultMembers = new ArrayList<>();       // 초기 회원 세 명만 담는 용도의 ArrayList(지역변수)
             defaultMembers.add(new Member(1, "user01", "pass01", 20
                     , new String[]{"발레", "수영"}, BloodType.A));
@@ -34,12 +35,12 @@ public class MemberRepository {
             /* 설명. 초기 멤버 3명을 파일로 객체 출력하는 코드 작성 */
             saveMembers(file, defaultMembers);
         }
+
         /* 설명. 파일로부터 회원 객체들을 입력받아 memberList에 쌓기 */
         loadMember(file);
 
-        /* 설명. loadMember() method를 통해 잘 불러와졌는지 확인 */
-        /* 중간 확인을 위한 주석(이 코드까진 문제없이 작동한다) */
-//        for(Member member : memberList) {
+        /* 설명. loadMember()메소드를 통해 잘 불러와졌는지 확인 */
+//        for(Member member: memberList) {
 //            System.out.println("member = " + member);
 //        }
     }
@@ -71,7 +72,7 @@ public class MemberRepository {
         }
     }
 
-    private static void saveMembers(File file, ArrayList<Member> members) {
+    private void saveMembers(File file, ArrayList<Member> members) {
         ObjectOutputStream oos = null;
         try {
             oos = new ObjectOutputStream(
@@ -95,88 +96,91 @@ public class MemberRepository {
         }
     }
 
+
     public ArrayList<Member> selectAllMembers() {
         return memberList;
     }
 
-    // 얘는 판단을 하지 않음 그냥 성공 실패만 출력한다.
     public Member selectMemberBy(int memNo) {
-        for(Member member: memberList) {
-            if(member.getMemNo() == memNo) return member;
+
+        for(Member mem: memberList) {
+            if(mem.getMemNo() == memNo) return mem;
         }
+
         return null;
     }
 
-    public int insertMember(Member newmember) {
+    public int insertMember(Member newMember) {
 
-        /* 설명. 객체 파일 출력으로 Insert 개념을 진행할 때는 기존 회원에 이어서 출력이 발생해야 한다.
-        *  (feat. MyObjectOutput) */
+        /* 설명. 객체 파일 출력으로 insert개념을 진행할 때는 기존 회원에 이어서 출력이 발생해야 함(feat.MyObjectOutput) */
         MyObjectOutput moo = null;
         int result = 0;
         try {
             moo = new MyObjectOutput(
                     new BufferedOutputStream(
-                            new FileOutputStream("src/main/java/com/ohgiraffers/section04/testapp/db/memberDB.dat"
-                            , true)
+                            new FileOutputStream(
+                                    "src/main/java/com/ohgiraffers/section04/testapp/db/memberDB.dat"
+                                    , true)
                     )
             );
+
             /* 설명. 파일로 새로운 회원 객체 출력하기(기존 회원에 추가) */
-            moo.writeObject(newmember);
-            /* 설명. 파일 출력이 성공하면 회원을관리하는 컬렉션에도 추가(최신화) */
-            memberList.add(newmember);
-            /* 설명. 객체 1개 insert 성공하면 바뀌는 결과값 */
+            moo.writeObject(newMember);
+
+            /* 설명. 파일 출력이 성공하면 회원을 관리하는 컬렉션에도 추가(최신화) */
+            memberList.add(newMember);
+
+            /* 설명. 객체 한 개 insert 성공을 의미하는 int값 */
             result = 1;
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            if(moo != null) {
-                try {
-                    moo.close();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+            try {
+                if(moo != null) moo.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
+
         return result;
     }
 
-    /* 설명. insert를 하기 위해 회원 번호를 발생시키는데 사용되는 마지막 회원의 번호 추출 기능 method(anto-increment) */
+    /* 설명. insert를 하기 위해 회원 번호를 발생시키는데 사용되는 마지막 회원의 번호 추출 기능 메소드 */
     public int selectLastMemberNo() {
 
-        /* 설명. 1. 마지막 회원을 조회해서 그 회원의 회원번호를 확인 */
+        /* 설명. 1. 마지막 회원을 조회해서 그 회원의 회원번호를 확인(항상 맞다) */
         Member lastMember = memberList.get(memberList.size() - 1);
         return lastMember.getMemNo();
 
-        /* 설명. 2. 컬렉션의 크기가 곧 회원 번호이므로 마지막 회원의 번호는 컬렉션의 크기(항상 맞는 건 X) */
+        /* 설명. 2. 컬렉션의 크기가 곧 회원 번호이므로 마지막 회원의 번호는 컬렉션의 크기(항상 맞지는 X) */
 //        return memberList.size();
     }
 
     public int deleteMember(int removeMember) {
 
         /* 설명.
-        *  현재는 우리가 마지막 회원 번호 추출을 위해 컬렉션의 size()를 활용하고 있다.
-        *  (그래서 hard delete(실제 회원 객체를 제거)를 할 수 없고
-        *  soft delete(회원 중에 탈퇴와 관련된 속성수정))
-        *  hard delete를 하게 된다면 memberList에서 회원 한 명을 remove() method를 활용하여 삭제하고
-        * 파일 객체 출력을 통해 파일에 컬렉션에 있는 회원들을 다시 덮어씌어야 한다. (ObjectOutputStream을 활용)
-        *  */
+         *  현재는 우리가 마지막 회원 번호 추출을 위해 컬렉션의 size()를 활용하고 있다.
+         *  (그래서 hard delete(실제 회원 객체를 제거)를 할 수 없고
+         *   soft delete(회원 중에 탈퇴와 관련된 속성 수정)를 진행해야 한다.)
+         *
+         * 설명.
+         *  hard delete를 하게 된다면 memberList에서 회원 한명을 remove() 메소드를 활용하여 삭제하고
+         *  파일 객체 출력을 통해 파일에 컬렉션에 있는 회원들을 다시 덮어씌워야 한다.(ObjectOutputStream을 활용해서)
+        * */
         /* 설명. soft delete 시 */
 //        int result = 0;
-//        try {
-//            for (Member member : memberList) {
-//                if (member.getMemNo() == removeMember) {
-//                    member.setId(null);
+//            for (Member mem : memberList) {
+//                if (mem.getMemNo() == removeMember) {
+//                    mem.setId(null);
 //                }
 //            }
-//            result = 1;
-//        } catch (Exception e) {
 //
-//        }
+//            result = 1;
 //        return result;
 
         /* 설명. hard delete 시 */
-        for(int i = 0; i < memberList.size(); i++) {
-            if(memberList.get(i).getMemNo() == removeMember){
+        for (int i = 0; i < memberList.size(); i++) {
+            if(memberList.get(i).getMemNo() == removeMember) {
                 memberList.remove(i);
 
                 File file = new File("src/main/java/com/ohgiraffers/section04/testapp/db/memberDB.dat");
@@ -189,16 +193,20 @@ public class MemberRepository {
         return 0;
     }
 
-    public int edit(Member selectedmMeber) {
-        System.out.println("회원 정보 수정 중!");
-        for(int i = 0; i < memberList.size(); i++) {
-            Member nonEditMember = memberList.get(i);
-            if(nonEditMember.getMemNo() == selectedmMeber.getMemNo()){
-                memberList.set(i, selectedmMeber);
+    public int updateMember(Member reform) {
+        for (int i = 0; i < memberList.size(); i++) {
+            Member iMember = memberList.get(i);
+            if(iMember.getMemNo() == reform.getMemNo()){
+                System.out.println("===== 수정 전 기존 회원 정보와의 비교 =====");
+                System.out.println("reform = " + reform);
+                System.out.println("iMember = " + iMember);
+
+                memberList.set(i, reform);
 
                 File file = new File("src/main/java/com/ohgiraffers/section04/testapp/db/memberDB.dat");
                 saveMembers(file, memberList);
-                if(nonEditMember.equals(selectedmMeber)) return 1;
+
+                if(!iMember.equals(reform)) return 1;
             }
         }
         return 0;

@@ -8,136 +8,113 @@ import java.util.Scanner;
 
 public class Application {
 
-    // 어플리케이션은 항상 MemberService와 관련이 있다는 의미(Application의 모든 method를 갖다 쓸 수 있는 매우 가까운 관계(강결합)이다)
-    private static final MemberService ms = new MemberService();   // Singleton과 비슷
+    private static final MemberService ms = new MemberService();
 
-    /* Domain:  수정할 때 영향을 받는 단위 */
     public static void main(String[] args) {
-        // Aggregate : 이벤트가 발생하고 그로인해 영향을 받는 데이터들
-        //(자바에서 다루는 데이터 타입이 담기는 의미로 사용한다)
-        // Repository : db와 가장 친한 패키지, db와 연관된 작업을 하는 패키지
-        // Service ; 로직(성공, 실패)을 확인하는 패키지
-        // Run : 사용자가 사용하는 화면이자 입력공간이자 출력공간이다, 구동 + 화면 (= VIEW)
         Scanner sc = new Scanner(System.in);
         while(true) {
             System.out.println("====== 회원 관리 프로그램 =======");
             System.out.println("1. 모든 회원 정보 보기");
-            System.out.println("2. 회원 찾기");       // 1. 관리자가 회원을 찾기  2. 로그인할 때 회원 찾기
+            System.out.println("2. 회원 찾기");
             System.out.println("3. 회원 가입");
-            System.out.println("4. 회원 탈퇴");
-            System.out.println("5. 회원 수정");
+            System.out.println("4. 회원 정보수정");
+            System.out.println("5. 회원 탈퇴");
             System.out.println("9. 프로그램 종료");
-            System.out.println("메뉴를 선택해 주세요: ");
+            System.out.print("메뉴를 선택해 주세요: ");
+            int input = sc.nextInt();
 
-            int choice = sc.nextInt();
-
-            switch (choice) {
-                case 1: ms.findAllMembers(); break;
-                case 2: ms.findMemberBy(chooseMember("조회할")); break;
-                case 3: ms.registerMember(signUp()); break;
-                case 4: ms.removeMember(chooseMember("탈퇴할")); break;
-                case 5: Member selectedMeber = ms.findModMember((chooseMember("수정할 ")));
-                        if(selectedMeber == null) break;
-                        else {
-                            boolean continueModifying = true;
-                            while(continueModifying) {
-                                System.out.println("-------- 회원 수정을 시작합니다 -------");
-                                System.out.println("1. 비밀번호 수정하기");
-                                System.out.println("2. 나이 수정하기");
-                                System.out.println("3. 취미 수정하기");
-                                System.out.println("4. 혈액형 수정하기");
-                                System.out.println("5. 서비스 종료");
-                                System.out.println("원하시는 서비스 번호를 입력하세요: ");
-
-                                int ChoiceNo = sc.nextInt();
-                                if(ChoiceNo == 5) continueModifying = false;
-                                else modifyMember(ChoiceNo, selectedMeber);
-                                ms.updateMember(selectedMeber);
-                            }
-                        } break;
-                case 9: System.out.println("회원 관리 프로그램을 종료합니다."); return;
+            switch (input) {
+                case 1: ms.findAllMembers();  break;
+                case 2: ms.findMemberBy(chooseMemNo()); break;
+                case 3: ms.registMember(signUp()); break;
+                case 4:
+                    Member selected = ms.findMemberForMod(chooseMemNo());
+                    if(selected == null) continue;
+                    ms.modifyMember(reform(selected)); break;
+                case 5: ms.removeMember(chooseMemNo()); break;
+                case 9: System.out.println("회원관리 프로그램을 종료합니다."); return;
                 default:
-                    System.out.println("잘못된 번호입니다.");
+                    System.out.println("번호를 잘못 입력하셨습니다.");
             }
         }
     }
 
-    private static void modifyMember(int ChoiceNo, Member selectedMeber) {
+    private static Member reform(Member selected) {
+        Member modifiedMember = selected;
         Scanner sc = new Scanner(System.in);
-        switch (ChoiceNo) {
-            case 1: String pwd;
-                while(true) {
-                    System.out.print("변경하실 비밀번호를 입력하세요: ");
-                    pwd = sc.nextLine();
-                    if(pwd.trim().isEmpty()) {
-                        System.out.println("입력값이 없습니다.");
-                    }
-                    else break;
-                }
-                selectedMeber.setPw(pwd);
-                break;
-            case 2: int age;
-                while(true) {
-                    System.out.print("변경하실 나이를 입력하세요: ");
-                    String input = sc.nextLine();
-                    try {
-                    age = Integer.parseInt(input);
-                    if(age <= 0 || age > 120) {
-                        System.out.println("올바르지 않은 나이 범위입니다. 1세 이상 120세 이하로 입력해주세요.");
-                        continue;
-                    } break;
-                    } catch (NumberFormatException e) {
-                    System.out.println("잘못된 입력입니다.");
-                    }
-                }
-            selectedMeber.setAge(age);
-                break;
-            case 3: String[] hobbies; int num;
-            while(true) {
-                System.out.print("변경하실 취미의 개수를 입력하세요: ");
-                String input = sc.nextLine();
-                try {
-                    num = Integer.parseInt(input);
-                    if(num < 0) {
-                        System.out.println("올바르지 않은 개수입니다. 0개 이상을 입력해주세요.");
-                        continue;
-                    } break;
-                } catch (NumberFormatException e) {
-                    System.out.println("잘못된 입력입니다.");
-                }
+
+        while(true) {
+            System.out.println("==== 수정 서브 메뉴 ====");
+            System.out.println("1. 패스워드");
+            System.out.println("2. 나이");
+            System.out.println("3. 취미");
+            System.out.println("4. 혈액형");
+            System.out.println("5. 메인 메뉴로 돌아가기");
+            System.out.print("내용을 선택하세요: ");
+            int chooseNo = sc.nextInt();
+            sc.nextLine();
+            switch(chooseNo) {
+                case 1:
+                    System.out.print("수정 할 아이디를 입력하세요: ");
+                    modifiedMember.setId(sc.nextLine());
+                    break;
+                case 2:
+                    System.out.print("수정 할 나이를 입력하세요: ");
+                    modifiedMember.setAge(sc.nextInt());
+                    break;
+                case 3:
+                    System.out.print("수정 할 취미를 입력하세요: ");
+                    modifiedMember.setHobbies(resetHobbies());
+                    break;
+                case 4:
+                    System.out.print("수정 할 혈액형을 입력하세요: ");
+                    modifiedMember.setBloodType(resetBloodType());
+                    break;
+                case 5:
+                    System.out.println("메인 메뉴로 돌아갑니다.");
+                    return selected;
+                default:
+                    System.out.println("번호를 다시 제대로 입력해 주세요: ");
             }
-            hobbies = new String[num];
-            for(int i = 0; i < num; i++) {
-                System.out.print((i + 1) + "번째 취미를 입력하세요: ");
-                String input = sc.nextLine();
-                hobbies[i] = input;
-            } break;
-            case 4: String BloodType;
-                while(true) {
-                    System.out.print("변경하실 혈액형을 입력해주세요: ");
-                    String input = sc.nextLine().toUpperCase().trim();
-                    if(input.equals("A") || input.equals("B") || input.equals("O") || input.equals("AB")) {
-                        BloodType = input;
-                        break;
-                    }
-                    else System.out.println("잘못된 입력입니다. 혈액형은 A, B, O, AB 중 하나를 입력해주세요.");
-                }
-                break;
-            default:
-                System.out.println("잘못된 요청입니다.");
-                break;
+
+            return modifiedMember;
         }
     }
 
-    /* 설명. 관리자가 ID를 입력받아 반환하는 method */
-    private static int chooseMember(String str) {
+    private static BloodType resetBloodType() {
         Scanner sc = new Scanner(System.in);
-        System.out.println(str + "id를 입력하세요: ");
-        return sc.nextInt(); // 메모리를 아끼기 위한 변수 선언 부분 삭제
+        System.out.print("수정 할 혈액형을 입력하세요(A, AB, B, O): ");
+        String bloodType = sc.nextLine().toUpperCase();
+        BloodType bt = null;
+        switch(bloodType) {
+            case "A": bt = BloodType.A; break;
+            case "AB": bt = BloodType.AB; break;
+            case "B": bt = BloodType.B; break;
+            case "O": bt = BloodType.O;
+        }
+
+        return bt;
+    }
+
+    private static String[] resetHobbies() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("수정 할 취미 개수를 입력하세요(숫자로 1 이상): ");
+        int length = sc.nextInt();
+        sc.nextLine();
+
+        String[] hobbies = new String[length];
+        for (int i = 0; i < hobbies.length; i++) {
+            System.out.print((i + 1) + "번째 취미를 입력하세요: ");
+            String input = sc.nextLine();
+            hobbies[i] = input;
+        }
+
+        return hobbies;
     }
 
     private static Member signUp() {
-        Member newMember = new Member();
+        Member newMember = null;
 
         Scanner sc = new Scanner(System.in);
         System.out.print("아이디를 입력하세요: ");
@@ -149,37 +126,45 @@ public class Application {
         System.out.print("나이를 입력하세요: ");
         int age = sc.nextInt();
 
-        System.out.print("입력할 취미 개수를 입력하세요(1개 이상); ");
+        System.out.print("입력 할 취미 개수를 입력하세요(숫자로 1 이상): ");
         int length = sc.nextInt();
-        sc.nextLine(); // 버퍼 개행 문자 처리용
+        sc.nextLine();          // 버퍼의 개행문자 처리용
 
         String[] hobbies = new String[length];
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < hobbies.length; i++) {
             System.out.print((i + 1) + "번째 취미를 입력하세요: ");
             String input = sc.nextLine();
             hobbies[i] = input;
         }
 
-        System.out.print("혈액형을 입력하세요(A, B, AB, O): ");
+        System.out.print("혈액형을 입력하세요(A, AB, B, O): ");
         String bloodType = sc.nextLine().toUpperCase();
         BloodType bt = null;
-        switch (bloodType) {
+        switch(bloodType) {
             case "A": bt = BloodType.A; break;
-            case "B": bt = BloodType.B; break;
             case "AB": bt = BloodType.AB; break;
-            case "O": bt = BloodType.O; break;
+            case "B": bt = BloodType.B; break;
+            case "O": bt = BloodType.O;
         }
 
         /* 필기.
-        *   회원으로부터 회원가입을 위한 정보를 입력받아 Member 타입 객체 하나로 가공처리할 방법이 두 가지가 있다.
-        *    1. 생성자 방식(장점: 한 줄 코딩, 단점: 따로 생성자를 추가 및 생성자의 매개변수가 다소 늘어날 수 있음(리팩토링 징조))
-        *    2. Setter 방식(장점: 초기화할 개수 수정 용이, 가독성이 좋다, 단점: 코드의 줄 수가 늘어난다.
+         *  회원으로부터 회원가입을 위한 정보를 입력받아 Member 타입 객체 하나로 가공 처리할 방법이 두 가지가 있다.
+         *  1. 생성자 방식(장: 한줄 코딩, 단: 따로 생성자 추가 및 생성자의 매개변수가 다소 늘어날 수 있음(리펙토링 징조)
+         *  2. setter 방식(장: 초기화 할 갯수 수정 용이, 가독성이 좋음, 단: 코드의 줄 수가 늘어남)
         * */
-
         newMember = new Member(id, pwd, age, hobbies);
 
         newMember.setBloodType(bt);
 
         return newMember;
     }
+
+    /* 설명. 회원 ID를 입력받아 반환하는 메소드  */
+    private static int chooseMemNo() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("회원의 번호를 입력하세요: ");
+        return sc.nextInt();
+    }
+
+
 }

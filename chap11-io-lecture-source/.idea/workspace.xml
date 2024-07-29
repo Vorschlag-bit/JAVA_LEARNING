@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="375824d3-0997-43a3-8762-95de1dac893a" name="Changes" comment="File 클래스 method 연습">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/run/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/run/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ohgiraffers/section04/testapp/service/MemberService.java" afterDir="false" />
-    </list>
+    <list default="true" id="375824d3-0997-43a3-8762-95de1dac893a" name="Changes" comment="File 클래스 method 연습" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -110,6 +106,7 @@
       <workItem from="1722166316067" duration="734000" />
       <workItem from="1722168281000" duration="138000" />
       <workItem from="1722168439317" duration="2912000" />
+      <workItem from="1722176390705" duration="852000" />
     </task>
     <task id="LOCAL-00001" summary="File 클래스 method 연습">
       <option name="closed" value="true" />
